@@ -462,6 +462,18 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
       font-weight: 700;
       box-shadow: var(--shadow);
     }}
+    .top-links {{
+      margin-top: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      font-size: 0.95rem;
+    }}
+    .top-links a {{
+      font-weight: 600;
+    }}
     .toc {{
       margin-top: 14px;
       background: #fff;
@@ -614,6 +626,10 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
       <h1>Comparative Hierarchical Topic Tree (Citation-Granular): Bible, Mishnah, Mishneh Torah, Shulchan Aruch</h1>
       <p class="meta">Vertical hierarchy with full citation detail. Each citation token links to Sefaria (direct ref when parseable, otherwise Sefaria search query fallback).</p>
     </header>
+    <div class="top-links">
+      Explore the high-level line chart:
+      <a href="./high_level_relationship_chart.html">Pentateuch → Mishnah → Mishneh Torah → Shulchan Aruch</a>
+    </div>
     <div class="root">Torah / Jewish Knowledge Corpus</div>
     <nav class="toc" aria-label="Topic navigation">
       <strong>Topics</strong>

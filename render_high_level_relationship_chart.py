@@ -167,10 +167,39 @@ def add_weighted_links(counter: Counter, left: set[str], right: set[str]) -> Non
             counter[(a, b)] += w
 
 
+def citation_snippet(row: dict[str, str], layer_pair: int) -> str:
+    if layer_pair == 1:
+        return f"Bible: {row['Bible range']} | Mishnah: {row['Mishnah range']}"
+    if layer_pair == 2:
+        return f"Mishnah: {row['Mishnah range']} | Mishneh Torah: {row['Mishneh Torah unit']}"
+    return f"Mishneh Torah: {row['Mishneh Torah unit']} | Shulchan Aruch: {row['Shulchan Aruch simanim']}"
+
+
+def append_evidence(
+    evidence: dict[tuple[int, str, str], list[str]],
+    layer_pair: int,
+    left: set[str],
+    right: set[str],
+    row: dict[str, str],
+) -> None:
+    if not left or not right:
+        return
+    snippet = citation_snippet(row, layer_pair)
+    line = f"- {row['Subtopic']}: {snippet}"
+    for a in left:
+        for b in right:
+            key = (layer_pair, a, b)
+            bucket = evidence[key]
+            # Keep tooltip readable while still citation-aware.
+            if len(bucket) < 4 and line not in bucket:
+                bucket.append(line)
+
+
 def build_graph(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
     links_l1_l2 = Counter()
     links_l2_l3 = Counter()
     links_l3_l4 = Counter()
+    evidence = defaultdict(list)
 
     node_values = defaultdict(float)
 
@@ -183,6 +212,9 @@ def build_graph(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
         add_weighted_links(links_l1_l2, l1, l2)
         add_weighted_links(links_l2_l3, l2, l3)
         add_weighted_links(links_l3_l4, l3, l4)
+        append_evidence(evidence, 1, l1, l2, row)
+        append_evidence(evidence, 2, l2, l3, row)
+        append_evidence(evidence, 3, l3, l4, row)
 
     for (a, b), v in links_l1_l2.items():
         node_values[a] += v
@@ -235,11 +267,44 @@ def build_graph(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
 
     links = []
     for (a, b), v in links_l1_l2.items():
-        links.append({"source": node_id[f"L1:{a}"], "target": node_id[f"L2:{b}"], "value": round(v, 4), "layer": 1})
+        tip = f"{a} -> {b}\\nWeight: {v:.2f}\\n\\nContributing entries (sample):\\n" + "\\n".join(
+            evidence.get((1, a, b), [])
+        )
+        links.append(
+            {
+                "source": node_id[f"L1:{a}"],
+                "target": node_id[f"L2:{b}"],
+                "value": round(v, 4),
+                "layer": 1,
+                "tooltip": tip,
+            }
+        )
     for (a, b), v in links_l2_l3.items():
-        links.append({"source": node_id[f"L2:{a}"], "target": node_id[f"L3:{b}"], "value": round(v, 4), "layer": 2})
+        tip = f"{a} -> {b}\\nWeight: {v:.2f}\\n\\nContributing entries (sample):\\n" + "\\n".join(
+            evidence.get((2, a, b), [])
+        )
+        links.append(
+            {
+                "source": node_id[f"L2:{a}"],
+                "target": node_id[f"L3:{b}"],
+                "value": round(v, 4),
+                "layer": 2,
+                "tooltip": tip,
+            }
+        )
     for (a, b), v in links_l3_l4.items():
-        links.append({"source": node_id[f"L3:{a}"], "target": node_id[f"L4:{b}"], "value": round(v, 4), "layer": 3})
+        tip = f"{a} -> {b}\\nWeight: {v:.2f}\\n\\nContributing entries (sample):\\n" + "\\n".join(
+            evidence.get((3, a, b), [])
+        )
+        links.append(
+            {
+                "source": node_id[f"L3:{a}"],
+                "target": node_id[f"L4:{b}"],
+                "value": round(v, 4),
+                "layer": 3,
+                "tooltip": tip,
+            }
+        )
 
     return nodes, links
 
@@ -338,6 +403,7 @@ def render_html(nodes: list[dict], links: list[dict]) -> str:
 </head>
 <body>
   <div class="wrap">
+    <p style="margin:0 0 8px;"><a href="./index.html">Back to main citation tree</a></p>
     <h1>High-Level Relationship Chart</h1>
     <p class="subtitle">Based on current mappings: Pentateuch → Mishnah → Mishneh Torah → Shulchan Aruch (high-level, aggregated).</p>
     <div class="legend">
@@ -395,7 +461,7 @@ def render_html(nodes: list[dict], links: list[dict]) -> str:
       .attr("stroke", d => linkColor(d))
       .attr("stroke-width", d => Math.max(1, d.width))
       .append("title")
-      .text(d => `${{d.source.name}} -> ${{d.target.name}}\\nWeight: ${{d.value.toFixed(2)}}`);
+      .text(d => d.tooltip || `${{d.source.name}} -> ${{d.target.name}}\\nWeight: ${{d.value.toFixed(2)}}`);
 
     const node = svg.append("g")
       .selectAll("g")
