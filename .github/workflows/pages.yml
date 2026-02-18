@@ -24,6 +24,7 @@ jobs:
           mkdir -p _site
           cp index.html _site/index.html
           cp comparative_topic_tree_hyperlinked.html _site/comparative_topic_tree_hyperlinked.html
+          cp high_level_relationship_chart.html _site/high_level_relationship_chart.html
           cp comparative_topic_matrix.csv _site/comparative_topic_matrix.csv
           cp comparative_topic_matrix_with_subtopic.csv _site/comparative_topic_matrix_with_subtopic.csv
           cp comparative_topic_tree_vertical.png _site/comparative_topic_tree_vertical.png

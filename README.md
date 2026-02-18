@@ -10,6 +10,7 @@ The goal is simple: help readers see how the same legal topics appear in differe
 
 ## What You Can Browse
 - `index.html` (live page): a vertical topic tree with full citation detail.
+- `high_level_relationship_chart.html`: a high-level line chart showing flow across Pentateuch, Mishnah, Mishneh Torah, and Shulchan Aruch.
 - Each citation is linked to Sefaria.
 - Each subtopic header is linked to a relevant Wikipedia page in English and Hebrew.
 - Hebrew labels are shown cleanly (without parenthetical metadata in the visible text).
