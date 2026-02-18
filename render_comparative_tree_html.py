@@ -112,7 +112,7 @@ SUBTOPIC_WIKI = {
     "Ritual Slaughter": {"he": "שחיטה", "en_url": "https://en.wikipedia.org/wiki/Shechita", "he_url": "https://he.wikipedia.org/wiki/שחיטה"},
     "Blood/Fat/Meat Prohibitions": {"he": "איסורי אכילה (דם וחֵלֶב)", "en_url": "https://en.wikipedia.org/wiki/Kashrut", "he_url": "https://he.wikipedia.org/wiki/כשרות"},
     "Firstborn (animal/human)": {"he": "בכור ופדיון הבן", "en_url": "https://en.wikipedia.org/wiki/Pidyon_haben", "he_url": "https://he.wikipedia.org/wiki/פדיון_הבן"},
-    "Orlah": {"he": "עורלה", "en_url": "https://en.wikipedia.org/wiki/Orlah", "he_url": "https://he.wikipedia.org/wiki/עורלה"},
+    "Orlah": {"he": "עורלה", "en_url": "https://en.wikipedia.org/wiki/Orlah", "he_url": "https://he.wikipedia.org/wiki/איסור_ערלה"},
     "Marriage/Kiddushin": {"he": "קידושין ונישואין", "en_url": "https://en.wikipedia.org/wiki/Jewish_wedding", "he_url": "https://he.wikipedia.org/wiki/קידושין"},
     "Vows": {"he": "נדר (יהדות)", "en_url": "https://en.wikipedia.org/wiki/Neder", "he_url": "https://he.wikipedia.org/wiki/נדר_(יהדות)"},
     "Nazirite": {"he": "נזיר", "en_url": "https://en.wikipedia.org/wiki/Nazirite", "he_url": "https://he.wikipedia.org/wiki/נזיר_(יהדות)"},

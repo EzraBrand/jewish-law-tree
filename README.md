@@ -9,11 +9,13 @@ This project maps major areas of Jewish law across four core texts:
 The goal is simple: help readers see how the same legal topics appear in different layers of the Jewish legal tradition, and support study of the history of halacha.
 
 ## What You Can Browse
-- `index.html` (live page): a vertical topic tree with full citation detail.
-- `high_level_relationship_chart.html`: a high-level line chart showing flow across Pentateuch, Mishnah, Mishneh Torah, and Shulchan Aruch.
-- Each citation is linked to Sefaria.
-- Each subtopic header is linked to a relevant Wikipedia page in English and Hebrew.
-- Hebrew labels are shown cleanly (without parenthetical metadata in the visible text).
+- `index.html` (live page): a full citation tree by topic.
+- `high_level_relationship_chart.html`: a high-level flow chart from Pentateuch to Mishnah to Mishneh Torah to Shulchan Aruch.
+- The main page includes a direct link to the high-level chart.
+- Citation entries link to Sefaria.
+- Topic headers link to English and Hebrew Wikipedia entries.
+- Hebrew labels are shown without extra parenthetical qualifiers in visible text.
+- The high-level chart hover text includes concrete contributing subtopics and citation snippets.
 
 Live site:
 - `https://ezrabrand.github.io/jewish-law-tree/`
@@ -24,9 +26,11 @@ Live site:
 
 ## Technical Appendix
 - `render_comparative_tree_html.py` builds the main HTML page from CSV data.
+- `render_high_level_relationship_chart.py` builds the high-level Sankey-style relationship chart.
 - `render_comparative_tree.py` builds static image versions (`.png`, `.svg`).
 - `index.html` is the GitHub Pages entrypoint.
-- GitHub Actions deploys updates from `main` to the live Pages site.
+- GitHub Actions deploys updates from `main` to the live Pages site (`gh-pages` branch).
+- SEO files are included in deployment: `robots.txt` and `sitemap.xml`.
 
 To regenerate locally:
 

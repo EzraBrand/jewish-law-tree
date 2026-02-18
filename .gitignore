@@ -201,6 +201,9 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Local writing drafts
+BLOGPOST_DRAFT.md
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
