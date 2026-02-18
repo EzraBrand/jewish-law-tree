@@ -194,7 +194,8 @@ def build_graph(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
         node_values[a] += v
         node_values[b] += v
 
-    layer1 = ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"]
+    # Per your requested display order (halakhic flow emphasis): Exodus first.
+    layer1 = ["Exodus", "Leviticus", "Numbers", "Deuteronomy", "Genesis"]
     layer2 = ["Zeraim", "Moed", "Nashim", "Nezikin", "Kodashim", "Tahorot"]
     layer3 = [
         "Madda",
@@ -377,7 +378,8 @@ def render_html(nodes: list[dict], links: list[dict]) -> str:
       .nodePadding(8)
       .extent([[18, 40], [width - 18, height - 30]])
       .nodeAlign(d3.sankeyJustify)
-      .nodeSort((a, b) => d3.descending(a.value, b.value));
+      // Preserve the explicit node order provided by the Python layer lists.
+      .nodeSort(null);
 
     const g = sankey({{
       nodes: graph.nodes.map(d => Object.assign({{}}, d)),
