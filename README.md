@@ -34,6 +34,10 @@ python render_comparative_tree.py
 python render_comparative_tree_html.py
 ```
 
+## GitHub Pages
+- Site URL: `https://ezrabrand.github.io/jewish-law-tree/`
+- Main page: `index.html` (same content as `comparative_topic_tree_hyperlinked.html`)
+
 ## Notes
 - Mishneh Torah links in HTML use direct Sefaria URL format when mapped (example style: `Mishneh_Torah,_Foundations_of_the_Torah.1.1`), with fallback behavior for ambiguous entries.
 - Some Shulchan Aruch / Mishneh Torah entries are intentionally marked as partial or non-practical parallels where relevant.
