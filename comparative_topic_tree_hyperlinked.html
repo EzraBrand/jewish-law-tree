@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparative Hierarchical Topic Tree (Citation-Granular)</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --card: #ffffff;
+      --ink: #1d2430;
+      --muted: #5a6576;
+      --line: #c9d1db;
+      --accent: #2f3d4a;
+      --shadow: 0 8px 24px rgba(18, 24, 33, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans", Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 18px 48px;
+    }
+    header {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.25rem, 2.8vw, 2rem);
+      line-height: 1.25;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    .root {
+      margin: 20px auto 8px;
+      width: fit-content;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+    .tree {
+      margin-top: 16px;
+      border-left: 3px solid var(--line);
+      padding-left: 20px;
+      position: relative;
+    }
+    .topic {
+      position: relative;
+      margin: 18px 0 28px;
+      padding-left: 12px;
+    }
+    .topic::before {
+      content: "";
+      position: absolute;
+      left: -23px;
+      top: 22px;
+      width: 18px;
+      border-top: 2px solid var(--line);
+    }
+    .topic h2 {
+      margin: 0 0 12px;
+      display: inline-block;
+      background: #eaf0f7;
+      border: 1px solid #b9c8d8;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 1.05rem;
+    }
+    .topic-branch {
+      border-left: 2px dashed #d7dee7;
+      margin-left: 8px;
+      padding-left: 14px;
+    }
+    .subtopic {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      margin: 12px 0;
+    }
+    .subtopic::before {
+      content: "";
+      position: absolute;
+      left: -16px;
+      top: 22px;
+      width: 14px;
+      border-top: 2px solid #d5dde6;
+    }
+    .subtopic h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #213042;
+    }
+    .citations {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .col {
+      border: 1px solid #d9e0e9;
+      border-radius: 10px;
+      padding: 10px;
+      background: #fcfdff;
+      min-height: 100%;
+    }
+    .label {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #2b3e54;
+      font-size: 0.92rem;
+      letter-spacing: 0.01em;
+    }
+    .content {
+      font-size: 0.9rem;
+      color: #233042;
+      word-break: break-word;
+    }
+    a {
+      color: #124f96;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    a:hover {
+      color: #0d3562;
+      text-decoration-thickness: 2px;
+    }
+    .sep {
+      color: #6f7c8d;
+    }
+    .plain {
+      color: #5f6c7d;
+      font-style: italic;
+    }
+    .foot {
+      margin-top: 18px;
+      color: #536276;
+      font-size: 0.88rem;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    @media (max-width: 1200px) {
+      .citations { grid-template-columns: repeat(2, minmax(200px, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .citations { grid-template-columns: 1fr; }
+      .tree { padding-left: 12px; }
+      .topic::before { left: -15px; width: 10px; }
+      .subtopic::before { left: -12px; width: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Comparative Hierarchical Topic Tree (Citation-Granular): Bible, Mishnah, Mishneh Torah, Shulchan Aruch</h1>
+      <p class="meta">Vertical hierarchy with full citation detail. Each citation token links to Sefaria (direct ref when parseable, otherwise Sefaria search query fallback).</p>
+    </header>
+    <div class="root">Torah / Jewish Knowledge Corpus</div>
+    <main class="tree">
+      
+            <section class="topic" id="topic-1">
+              <h2>1) Sacred Time, Prayer, Festivals</h2>
+              <div class="topic-branch">
+                
+                <article class="subtopic">
+                  <h3>Prayer/Shema/Tefillin</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.6.4-6.9' target='_blank' rel='noopener noreferrer'>Deut 6:4-9</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.11.13-11.21' target='_blank' rel='noopener noreferrer'>Deut 11:13-21</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.15.37-15.41' target='_blank' rel='noopener noreferrer'>Num 15:37-41</a><span class='sep'>; </span><a href='https://www.sefaria.org/Exodus.13.9-13.10' target='_blank' rel='noopener noreferrer'>Ex 13:9-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Berakhot.1-9' target='_blank' rel='noopener noreferrer'>Berakhot 1-9</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Reading_the_Shema.1.1' target='_blank' rel='noopener noreferrer'>Sefer Ahavah: Hilkhot Kri&#x27;at Shema</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Prayer_and_the_Priestly_Blessing.1.1' target='_blank' rel='noopener noreferrer'>Tefillah u-Virkat Kohanim</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Tefillin_Mezuzah_and_the_Torah_Scroll.1.1' target='_blank' rel='noopener noreferrer'>Tefillin uMezuzah veSefer Torah</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Fringes.1.1' target='_blank' rel='noopener noreferrer'>Tzitzit</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Blessings.1.1' target='_blank' rel='noopener noreferrer'>Berakhot</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.1-231' target='_blank' rel='noopener noreferrer'>Orach Chayim 1-231</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Shabbat</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Exodus.20.8-20.11' target='_blank' rel='noopener noreferrer'>Ex 20:8-11</a><span class='sep'>; </span><a href='https://www.sefaria.org/Exodus.31.12-31.17' target='_blank' rel='noopener noreferrer'>Ex 31:12-17</a><span class='sep'>; </span><a href='https://www.sefaria.org/Exodus.35.1-35.3' target='_blank' rel='noopener noreferrer'>Ex 35:1-3</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.5.12-5.15' target='_blank' rel='noopener noreferrer'>Deut 5:12-15</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Shabbat.1-24' target='_blank' rel='noopener noreferrer'>Shabbat 1-24</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Sabbath.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Shabbat</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.242-397' target='_blank' rel='noopener noreferrer'>Orach Chayim 242-397</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Eruvin/Boundary-Carrying Framework</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Exodus.16.29' target='_blank' rel='noopener noreferrer'>Ex 16:29</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Eruvin.1-10' target='_blank' rel='noopener noreferrer'>Eruvin 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Eruvin.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Eruvin</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.345-372' target='_blank' rel='noopener noreferrer'>Orach Chayim 345-372</a><span class='sep'>; </span><a href='https://www.sefaria.org/search?q=Shulchan+Aruch+393-416&amp;tab=text' target='_blank' rel='noopener noreferrer'>393-416</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Pesach</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Exodus.12.1-12.51' target='_blank' rel='noopener noreferrer'>Ex 12:1-51</a><span class='sep'>; </span><a href='https://www.sefaria.org/Exodus.13.1-13.16' target='_blank' rel='noopener noreferrer'>Ex 13:1-16</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.9.1-9.14' target='_blank' rel='noopener noreferrer'>Num 9:1-14</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.16.1-16.8' target='_blank' rel='noopener noreferrer'>Deut 16:1-8</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Pesachim.1-10' target='_blank' rel='noopener noreferrer'>Pesachim 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Leavened_and_Unleavened_Bread.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Chametz u-Matzah</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Paschal_Offering.1.1' target='_blank' rel='noopener noreferrer'>Hilkhot Korban Pesach</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.429-494' target='_blank' rel='noopener noreferrer'>Orach Chayim 429-494</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Yom Tov (general)</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.23.1-23.44' target='_blank' rel='noopener noreferrer'>Lev 23:1-44</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.28.16-28.31' target='_blank' rel='noopener noreferrer'>Num 28:16-31</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.29.12-29.38' target='_blank' rel='noopener noreferrer'>Num 29:12-38</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.16.9-16.17' target='_blank' rel='noopener noreferrer'>Deut 16:9-17</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Beitzah.1-5' target='_blank' rel='noopener noreferrer'>Beitzah 1-5</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Rest_on_a_Holiday.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Yom Tov</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.495-529' target='_blank' rel='noopener noreferrer'>Orach Chayim 495-529</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Rosh Hashanah</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.23.23-23.25' target='_blank' rel='noopener noreferrer'>Lev 23:23-25</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.29.1-29.6' target='_blank' rel='noopener noreferrer'>Num 29:1-6</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Rosh_Hashanah.1-4' target='_blank' rel='noopener noreferrer'>Rosh Hashanah 1-4</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Shofar_Sukkah_and_Lulav.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Shofar, Sukkah veLulav (shofar sections)</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.581-597' target='_blank' rel='noopener noreferrer'>Orach Chayim 581-597</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Yom Kippur</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.16.1-16.34' target='_blank' rel='noopener noreferrer'>Lev 16:1-34</a><span class='sep'>; </span><a href='https://www.sefaria.org/Leviticus.23.26-23.32' target='_blank' rel='noopener noreferrer'>Lev 23:26-32</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.29.7-29.11' target='_blank' rel='noopener noreferrer'>Num 29:7-11</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Yoma.1-8' target='_blank' rel='noopener noreferrer'>Yoma 1-8</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Rest_on_the_Tenth_of_Tishrei.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Shevitat Asor</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.604-624' target='_blank' rel='noopener noreferrer'>Orach Chayim 604-624</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Sukkot</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.23.33-23.43' target='_blank' rel='noopener noreferrer'>Lev 23:33-43</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.29.12-29.38' target='_blank' rel='noopener noreferrer'>Num 29:12-38</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.16.13-16.15' target='_blank' rel='noopener noreferrer'>Deut 16:13-15</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Sukkah.1-5' target='_blank' rel='noopener noreferrer'>Sukkah 1-5</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Shofar_Sukkah_and_Lulav.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Shofar, Sukkah veLulav (sukkah/lulav sections)</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.625-669' target='_blank' rel='noopener noreferrer'>Orach Chayim 625-669</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Public Fasts</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Numbers.10.9' target='_blank' rel='noopener noreferrer'>Num 10:9 (fast/cry framework)</a><span class='sep'>; </span><a href='https://www.sefaria.org/Joel.2.15' target='_blank' rel='noopener noreferrer'>Joel 2:15</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Taanit.1-4' target='_blank' rel='noopener noreferrer'>Taanit 1-4</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Fasts.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Ta&#x27;aniyot</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.549-580' target='_blank' rel='noopener noreferrer'>Orach Chayim 549-580</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Purim/Megillah</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Esther.9.20-9.32' target='_blank' rel='noopener noreferrer'>Esther 9:20-32</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Megillah.1-4' target='_blank' rel='noopener noreferrer'>Megillah 1-4</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Scroll_of_Esther_and_Hanukkah.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Megillah veChanukah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.685-697' target='_blank' rel='noopener noreferrer'>Orach Chayim 685-697</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Chol HaMoed</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.16.8' target='_blank' rel='noopener noreferrer'>Deut 16:8</a><span class='sep'>; </span><a href='https://www.sefaria.org/search?q=Lev+23+festival+structures&amp;tab=text' target='_blank' rel='noopener noreferrer'>Lev 23 festival structures</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Moed_Katan.1-3' target='_blank' rel='noopener noreferrer'>Moed Katan 1-3</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Rest_on_a_Holiday.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zemanim: Hilkhot Yom Tov (chol hamoed sections)</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.530-548' target='_blank' rel='noopener noreferrer'>Orach Chayim 530-548</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="topic" id="topic-2">
+              <h2>2) Kashrut / Forbidden Foods / Bodily Sanctity</h2>
+              <div class="topic-branch">
+                
+                <article class="subtopic">
+                  <h3>Permitted/Forbidden Species</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.11.1-11.47' target='_blank' rel='noopener noreferrer'>Lev 11:1-47</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.14.3-14.21' target='_blank' rel='noopener noreferrer'>Deut 14:3-21</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Chullin.1-12' target='_blank' rel='noopener noreferrer'>Chullin 1-12</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Forbidden_Foods.1.1' target='_blank' rel='noopener noreferrer'>Sefer Kedushah: Hilkhot Ma&#x27;akhalot Asurot</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.1-122' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 1-122</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Ritual Slaughter</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.12.20-12.25' target='_blank' rel='noopener noreferrer'>Deut 12:20-25</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Chullin.1-12' target='_blank' rel='noopener noreferrer'>Chullin 1-12</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Ritual_Slaughter.1.1' target='_blank' rel='noopener noreferrer'>Sefer Kedushah: Hilkhot Shechitah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.1-28' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 1-28</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Blood/Fat/Meat Prohibitions</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.3.17' target='_blank' rel='noopener noreferrer'>Lev 3:17</a><span class='sep'>; </span><a href='https://www.sefaria.org/Leviticus.7.22-7.27' target='_blank' rel='noopener noreferrer'>Lev 7:22-27</a><span class='sep'>; </span><a href='https://www.sefaria.org/Leviticus.17.10-17.14' target='_blank' rel='noopener noreferrer'>Lev 17:10-14</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Chullin.7-8' target='_blank' rel='noopener noreferrer'>Chullin 7-8</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Forbidden_Foods.1.1' target='_blank' rel='noopener noreferrer'>Sefer Kedushah: Hilkhot Ma&#x27;akhalot Asurot</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.67-122' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 67-122</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Firstborn (animal/human)</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Exodus.13.1-13.2' target='_blank' rel='noopener noreferrer'>Ex 13:1-2</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.18.15-18.18' target='_blank' rel='noopener noreferrer'>Num 18:15-18</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.15.19-15.23' target='_blank' rel='noopener noreferrer'>Deut 15:19-23</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Bekhorot.1-9' target='_blank' rel='noopener noreferrer'>Bekhorot 1-9</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Firstlings.1.1' target='_blank' rel='noopener noreferrer'>Sefer Korbanot: Hilkhot Bekhorot</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.305-322' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 305-322</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Orlah</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.19.23-19.25' target='_blank' rel='noopener noreferrer'>Lev 19:23-25</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Orlah.1-3' target='_blank' rel='noopener noreferrer'>Orlah 1-3</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Second_Tithe_and_Fourth_Year_Fruit.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zeraim: Hilkhot Ma&#x27;aser Sheni veNeta Revai</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.294' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 294</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="topic" id="topic-3">
+              <h2>3) Family Law / Personal Status</h2>
+              <div class="topic-branch">
+                
+                <article class="subtopic">
+                  <h3>Marriage/Kiddushin</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.24.1' target='_blank' rel='noopener noreferrer'>Deut 24:1</a><span class='sep'>; </span><a href='https://www.sefaria.org/Exodus.21.10' target='_blank' rel='noopener noreferrer'>Ex 21:10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Kiddushin.1-4' target='_blank' rel='noopener noreferrer'>Kiddushin 1-4</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Ketubot.1-13' target='_blank' rel='noopener noreferrer'>Ketubot 1-13</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Marriage.1.1' target='_blank' rel='noopener noreferrer'>Sefer Nashim: Hilkhot Ishut</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Even_HaEzer.1-118' target='_blank' rel='noopener noreferrer'>Even HaEzer 1-118</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Vows</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Numbers.30.2-30.17' target='_blank' rel='noopener noreferrer'>Num 30:2-17</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Nedarim.1-11' target='_blank' rel='noopener noreferrer'>Nedarim 1-11</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Vows.1.1' target='_blank' rel='noopener noreferrer'>Sefer Hafla&#x27;ah: Hilkhot Nedarim</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Oaths.1.1' target='_blank' rel='noopener noreferrer'>Hilkhot Shevuot</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.203-239' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 203-239</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Nazirite</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Numbers.6.1-6.21' target='_blank' rel='noopener noreferrer'>Num 6:1-21</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Nazir.1-9' target='_blank' rel='noopener noreferrer'>Nazir 1-9</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Nazirite_Vows.1.1' target='_blank' rel='noopener noreferrer'>Sefer Hafla&#x27;ah: Hilkhot Nezirut</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><span class='plain'>(no dedicated practical section)</span></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Sotah ordeal</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Numbers.5.11-5.31' target='_blank' rel='noopener noreferrer'>Num 5:11-31</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Sotah.1-9' target='_blank' rel='noopener noreferrer'>Sotah 1-9</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Sotah.1.1' target='_blank' rel='noopener noreferrer'>Sefer Nashim: Hilkhot Sotah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><span class='plain'>(no dedicated practical section)</span></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Divorce</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.24.1-24.4' target='_blank' rel='noopener noreferrer'>Deut 24:1-4</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Gittin.1-9' target='_blank' rel='noopener noreferrer'>Gittin 1-9</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Divorce.1.1' target='_blank' rel='noopener noreferrer'>Sefer Nashim: Hilkhot Gerushin</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Even_HaEzer.119-154' target='_blank' rel='noopener noreferrer'>Even HaEzer 119-154</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Levirate/Yibbum-Chalitzah</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.25.5-25.10' target='_blank' rel='noopener noreferrer'>Deut 25:5-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Yevamot.1-16' target='_blank' rel='noopener noreferrer'>Yevamot 1-16</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Levirate_Marriage_and_Halitza.1.1' target='_blank' rel='noopener noreferrer'>Sefer Nashim: Hilkhot Yibbum vaChalitzah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Even_HaEzer.156-177' target='_blank' rel='noopener noreferrer'>Even HaEzer 156-177</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Niddah</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.15.19-15.30' target='_blank' rel='noopener noreferrer'>Lev 15:19-30</a><span class='sep'>; </span><a href='https://www.sefaria.org/Leviticus.18.19' target='_blank' rel='noopener noreferrer'>Lev 18:19</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Niddah.1-10' target='_blank' rel='noopener noreferrer'>Niddah 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Forbidden_Intercourse.1.1' target='_blank' rel='noopener noreferrer'>Sefer Kedushah: Hilkhot Issurei Bi&#x27;ah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.183-202' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 183-202</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="topic" id="topic-4">
+              <h2>4) Civil, Commercial, Damages, Courts</h2>
+              <div class="topic-branch">
+                
+                <article class="subtopic">
+                  <h3>Torts/Damages</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Exodus.21.18-21.36' target='_blank' rel='noopener noreferrer'>Ex 21:18-36</a><span class='sep'>; </span><a href='https://www.sefaria.org/Exodus.22.1-22.14' target='_blank' rel='noopener noreferrer'>Ex 22:1-14</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Bava_Kamma.1-10' target='_blank' rel='noopener noreferrer'>Bava Kamma 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Damages_to_Property.1.1' target='_blank' rel='noopener noreferrer'>Sefer Nezikin: Hilkhot Nizkei Mamon</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Chovel_Umazik.1.1' target='_blank' rel='noopener noreferrer'>Chovel uMazik</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Theft.1.1' target='_blank' rel='noopener noreferrer'>Genevah</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Robbery_and_Lost_Property.1.1' target='_blank' rel='noopener noreferrer'>Gezelah vaAvedah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Choshen_Mishpat.1-427' target='_blank' rel='noopener noreferrer'>Choshen Mishpat 1-427</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Commerce/Loans/Deposits</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Exodus.22.6-22.14' target='_blank' rel='noopener noreferrer'>Ex 22:6-14</a><span class='sep'>; </span><a href='https://www.sefaria.org/Leviticus.25.35-25.37' target='_blank' rel='noopener noreferrer'>Lev 25:35-37</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.23.20-23.21' target='_blank' rel='noopener noreferrer'>Deut 23:20-21</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Bava_Metzia.1-10' target='_blank' rel='noopener noreferrer'>Bava Metzia 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Kinyan&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Kinyan</a><span class='sep'>; </span><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Mishpatim&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Mishpatim (selected hilkhot)</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Choshen_Mishpat.1-427' target='_blank' rel='noopener noreferrer'>Choshen Mishpat 1-427</a><span class='sep'>; </span><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.159-177' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 159-177</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Real Estate/Partnerships/Inheritance</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Numbers.27.1-27.11' target='_blank' rel='noopener noreferrer'>Num 27:1-11</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.36.1-36.12' target='_blank' rel='noopener noreferrer'>Num 36:1-12</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.19.14' target='_blank' rel='noopener noreferrer'>Deut 19:14</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Bava_Batra.1-10' target='_blank' rel='noopener noreferrer'>Bava Batra 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Kinyan&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Kinyan</a><span class='sep'>; </span><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Nachalah&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Nachalah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Choshen_Mishpat.1-427' target='_blank' rel='noopener noreferrer'>Choshen Mishpat 1-427</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Courts/Testimony/Penalties</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.16.18-16.20' target='_blank' rel='noopener noreferrer'>Deut 16:18-20</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.17.8-17.13' target='_blank' rel='noopener noreferrer'>Deut 17:8-13</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.19.15-19.21' target='_blank' rel='noopener noreferrer'>Deut 19:15-21</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Sanhedrin.1-11' target='_blank' rel='noopener noreferrer'>Sanhedrin 1-11</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Makkot.1-3' target='_blank' rel='noopener noreferrer'>Makkot 1-3</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Shevuot.1-8' target='_blank' rel='noopener noreferrer'>Shevuot 1-8</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Eduyot.1-8' target='_blank' rel='noopener noreferrer'>Eduyot 1-8</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Horayot.1-3' target='_blank' rel='noopener noreferrer'>Horayot 1-3</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Shoftim&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Shoftim</a><span class='sep'>; </span><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Nezikin&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Nezikin (selected hilkhot)</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Choshen_Mishpat.1-427' target='_blank' rel='noopener noreferrer'>Choshen Mishpat 1-427</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="topic" id="topic-5">
+              <h2>5) Temple, Sacrifices, Purity</h2>
+              <div class="topic-branch">
+                
+                <article class="subtopic">
+                  <h3>Offerings (animal/meal)</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.1.1-7.38' target='_blank' rel='noopener noreferrer'>Lev 1:1-7:38</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.28.1-29.40' target='_blank' rel='noopener noreferrer'>Num 28:1-29:40</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Zevachim.1-14' target='_blank' rel='noopener noreferrer'>Zevachim 1-14</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Menachot.1-13' target='_blank' rel='noopener noreferrer'>Menachot 1-13</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Avodah&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Avodah</a><span class='sep'>; </span><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Korbanot&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Korbanot</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Shulchan+Aruch+&amp;tab=text' target='_blank' rel='noopener noreferrer'>(no full practical code parallel)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Temple Daily Service/Structure</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Exodus.25.1-31.18' target='_blank' rel='noopener noreferrer'>Ex 25:1-31:18</a><span class='sep'>; </span><a href='https://www.sefaria.org/Exodus.35.1-40.38' target='_blank' rel='noopener noreferrer'>Ex 35:1-40:38</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Tamid.1-7' target='_blank' rel='noopener noreferrer'>Tamid 1-7</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Middot.1-5' target='_blank' rel='noopener noreferrer'>Middot 1-5</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Daily_Offerings_and_Additional_Offerings.1.1' target='_blank' rel='noopener noreferrer'>Sefer Avodah: Hilkhot Temidin uMusafin</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_The_Chosen_House.1.1' target='_blank' rel='noopener noreferrer'>Beit haBechirah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Shulchan+Aruch+&amp;tab=text' target='_blank' rel='noopener noreferrer'>(no full practical code parallel)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Bird Offerings/Nest Cases</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.1.14-1.17' target='_blank' rel='noopener noreferrer'>Lev 1:14-17</a><span class='sep'>; </span><a href='https://www.sefaria.org/Leviticus.5.7-5.10' target='_blank' rel='noopener noreferrer'>Lev 5:7-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Kinnim.1-3' target='_blank' rel='noopener noreferrer'>Kinnim 1-3</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Korbanot&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Korbanot (relevant hilkhot)</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Shulchan+Aruch+&amp;tab=text' target='_blank' rel='noopener noreferrer'>(no full practical code parallel)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Purity/Impurity Systems</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.11-15' target='_blank' rel='noopener noreferrer'>Lev 11-15</a><span class='sep'>; </span><a href='https://www.sefaria.org/Numbers.19.1-19.22' target='_blank' rel='noopener noreferrer'>Num 19:1-22</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Kelim.1-30' target='_blank' rel='noopener noreferrer'>Kelim 1-30</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Oholot.1-18' target='_blank' rel='noopener noreferrer'>Oholot 1-18</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Negaim.1-14' target='_blank' rel='noopener noreferrer'>Negaim 1-14</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Parah.1-12' target='_blank' rel='noopener noreferrer'>Parah 1-12</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Tahorot.1-10' target='_blank' rel='noopener noreferrer'>Tahorot 1-10</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Mikvaot.1-10' target='_blank' rel='noopener noreferrer'>Mikvaot 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Mishneh+Torah+Sefer+Taharah&amp;tab=text' target='_blank' rel='noopener noreferrer'>Sefer Taharah</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/search?q=Shulchan+Aruch+&amp;tab=text' target='_blank' rel='noopener noreferrer'>(no full practical code parallel)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="topic" id="topic-6">
+              <h2>6) Agriculture / Land-Dependent Mitzvot</h2>
+              <div class="topic-branch">
+                
+                <article class="subtopic">
+                  <h3>Peah/Leket/Shikhechah</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.19.9-19.10' target='_blank' rel='noopener noreferrer'>Lev 19:9-10</a><span class='sep'>; </span><a href='https://www.sefaria.org/Leviticus.23.22' target='_blank' rel='noopener noreferrer'>Lev 23:22</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.24.19-24.22' target='_blank' rel='noopener noreferrer'>Deut 24:19-22</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Peah.1-8' target='_blank' rel='noopener noreferrer'>Peah 1-8</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Gifts_to_the_Poor.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zeraim: Hilkhot Matanot Aniyim</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.332-334' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 332-334 (selected)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Terumah/Ma&#x27;aser</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Numbers.18.8-18.32' target='_blank' rel='noopener noreferrer'>Num 18:8-32</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.14.22-14.29' target='_blank' rel='noopener noreferrer'>Deut 14:22-29</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.26.12-26.15' target='_blank' rel='noopener noreferrer'>Deut 26:12-15</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Terumot.1-11' target='_blank' rel='noopener noreferrer'>Terumot 1-11</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Maasrot.1-5' target='_blank' rel='noopener noreferrer'>Maasrot 1-5</a><span class='sep'>; </span><a href='https://www.sefaria.org/Mishnah_Demai.1-7' target='_blank' rel='noopener noreferrer'>Demai 1-7</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Heave_Offerings.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zeraim: Hilkhot Terumot</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Tithes.1.1' target='_blank' rel='noopener noreferrer'>Ma&#x27;aser</a><span class='sep'>; </span><a href='https://www.sefaria.org.il/Mishneh_Torah,_Maaser_Sheni.1.1' target='_blank' rel='noopener noreferrer'>Ma&#x27;aser Sheni</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.331-334' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 331-334 (selected)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Shemitah/Yovel</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.25.1-25.24' target='_blank' rel='noopener noreferrer'>Lev 25:1-24</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.15.1-15.11' target='_blank' rel='noopener noreferrer'>Deut 15:1-11</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Sheviit.1-10' target='_blank' rel='noopener noreferrer'>Sheviit 1-10</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Sabbatical_and_Jubilee_Years.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zeraim: Hilkhot Shemitah veYovel</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.331-334' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 331-334 (selected)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Kilayim</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Leviticus.19.19' target='_blank' rel='noopener noreferrer'>Lev 19:19</a><span class='sep'>; </span><a href='https://www.sefaria.org/Deuteronomy.22.9-22.11' target='_blank' rel='noopener noreferrer'>Deut 22:9-11</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Kilayim.1-9' target='_blank' rel='noopener noreferrer'>Kilayim 1-9</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_Diverse_Kinds.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zeraim: Hilkhot Kilayim</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.295-304' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 295-304</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Challah</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Numbers.15.17-15.21' target='_blank' rel='noopener noreferrer'>Num 15:17-21</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Challah.1-4' target='_blank' rel='noopener noreferrer'>Challah 1-4</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_First_Fruits_and_other_Gifts_to_Priests_outside_the_Sanctuary.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zeraim: Hilkhot Bikkurim (includes challah laws)</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.322-330' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 322-330</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="subtopic">
+                  <h3>Bikkurim</h3>
+                  <div class="citations">
+                    <div class="col">
+                      <div class="label">Bible</div>
+                      <div class="content"><a href='https://www.sefaria.org/Deuteronomy.26.1-26.11' target='_blank' rel='noopener noreferrer'>Deut 26:1-11</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishnah</div>
+                      <div class="content"><a href='https://www.sefaria.org/Mishnah_Bikkurim.1-4' target='_blank' rel='noopener noreferrer'>Bikkurim 1-4</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Mishneh Torah</div>
+                      <div class="content"><a href='https://www.sefaria.org.il/Mishneh_Torah,_First_Fruits_and_other_Gifts_to_Priests_outside_the_Sanctuary.1.1' target='_blank' rel='noopener noreferrer'>Sefer Zeraim: Hilkhot Bikkurim</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="label">Shulchan Aruch</div>
+                      <div class="content"><a href='https://www.sefaria.org/Shulchan_Arukh,_Yoreh_De%27ah.331-334' target='_blank' rel='noopener noreferrer'>Yoreh De&#x27;ah 331-334 (selected)</a></div>
+                    </div>
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+    </main>
+    <div class="foot">
+      Generated from <code>comparative_topic_matrix_with_subtopic.csv</code>. Notes like “selected” or “no full practical code parallel” are preserved verbatim.
+    </div>
+  </div>
+</body>
+</html>
