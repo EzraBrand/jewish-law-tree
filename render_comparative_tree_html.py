@@ -474,6 +474,14 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
     .top-links a {{
       font-weight: 600;
     }}
+    .top-links .cta {{
+      display: inline-block;
+      margin-left: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid #b7cae0;
+      background: #eef5ff;
+    }}
     .toc {{
       margin-top: 14px;
       background: #fff;
@@ -627,8 +635,10 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
       <p class="meta">Vertical hierarchy with full citation detail. Each citation token links to Sefaria (direct ref when parseable, otherwise Sefaria search query fallback).</p>
     </header>
     <div class="top-links">
-      Explore the high-level line chart:
-      <a href="./high_level_relationship_chart.html">Pentateuch → Mishnah → Mishneh Torah → Shulchan Aruch</a>
+      New: high-level line chart.
+      <a class="cta" href="./high_level_relationship_chart.html">Open chart</a>
+      <span class="sep">|</span>
+      <a href="{SITE_URL}high_level_relationship_chart.html">{SITE_URL}high_level_relationship_chart.html</a>
     </div>
     <div class="root">Torah / Jewish Knowledge Corpus</div>
     <nav class="toc" aria-label="Topic navigation">

@@ -267,7 +267,7 @@ def build_graph(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
 
     links = []
     for (a, b), v in links_l1_l2.items():
-        tip = f"{a} -> {b}\\nWeight: {v:.2f}\\n\\nContributing entries (sample):\\n" + "\\n".join(
+        tip = f"{a} -> {b}\nWeight: {v:.2f}\n\nContributing entries (sample):\n" + "\n".join(
             evidence.get((1, a, b), [])
         )
         links.append(
@@ -280,7 +280,7 @@ def build_graph(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
             }
         )
     for (a, b), v in links_l2_l3.items():
-        tip = f"{a} -> {b}\\nWeight: {v:.2f}\\n\\nContributing entries (sample):\\n" + "\\n".join(
+        tip = f"{a} -> {b}\nWeight: {v:.2f}\n\nContributing entries (sample):\n" + "\n".join(
             evidence.get((2, a, b), [])
         )
         links.append(
@@ -293,7 +293,7 @@ def build_graph(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
             }
         )
     for (a, b), v in links_l3_l4.items():
-        tip = f"{a} -> {b}\\nWeight: {v:.2f}\\n\\nContributing entries (sample):\\n" + "\\n".join(
+        tip = f"{a} -> {b}\nWeight: {v:.2f}\n\nContributing entries (sample):\n" + "\n".join(
             evidence.get((3, a, b), [])
         )
         links.append(
@@ -364,6 +364,21 @@ def render_html(nodes: list[dict], links: list[dict]) -> str:
       padding: 6px 8px;
       font-size: 0.9rem;
     }}
+    .stage-head {{
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 8px;
+      margin-bottom: 8px;
+    }}
+    .stage-head div {{
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 3px 0;
+      border-radius: 6px;
+      background: #f9fbff;
+      border: 1px dashed #dce5f0;
+    }}
     .dot {{
       display: inline-block;
       width: 10px;
@@ -405,12 +420,18 @@ def render_html(nodes: list[dict], links: list[dict]) -> str:
   <div class="wrap">
     <p style="margin:0 0 8px;"><a href="./index.html">Back to main citation tree</a></p>
     <h1>High-Level Relationship Chart</h1>
-    <p class="subtitle">Based on current mappings: Pentateuch → Mishnah → Mishneh Torah → Shulchan Aruch (high-level, aggregated).</p>
+    <p class="subtitle">Based on current mappings: Pentateuch -> Mishnah -> Mishneh Torah -> Shulchan Aruch (high-level, aggregated).</p>
     <div class="legend">
-      <div class="legend-item"><span class="dot" style="background: var(--l1);"></span>Pentateuch (Books)</div>
-      <div class="legend-item"><span class="dot" style="background: var(--l2);"></span>Mishnah (Sedarim)</div>
-      <div class="legend-item"><span class="dot" style="background: var(--l3);"></span>Mishneh Torah (Sefarim)</div>
-      <div class="legend-item"><span class="dot" style="background: var(--l4);"></span>Shulchan Aruch (4 Sections)</div>
+      <div class="legend-item"><span class="dot" style="background: var(--l1);"></span>Stage 1: Pentateuch (Five Books)</div>
+      <div class="legend-item"><span class="dot" style="background: var(--l2);"></span>Stage 2: Mishnah (Six Sedarim)</div>
+      <div class="legend-item"><span class="dot" style="background: var(--l3);"></span>Stage 3: Mishneh Torah (14 Sefarim)</div>
+      <div class="legend-item"><span class="dot" style="background: var(--l4);"></span>Stage 4: Shulchan Aruch (4 Sections)</div>
+    </div>
+    <div class="stage-head">
+      <div>Pentateuch</div>
+      <div>Mishnah</div>
+      <div>Mishneh Torah</div>
+      <div>Shulchan Aruch</div>
     </div>
     <div id="chart"></div>
   </div>
