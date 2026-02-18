@@ -38,10 +38,9 @@ python render_comparative_tree_html.py
 - Mishneh Torah links in HTML use direct Sefaria URL format when mapped (example style: `Mishneh_Torah,_Foundations_of_the_Torah.1.1`), with fallback behavior for ambiguous entries.
 - Some Shulchan Aruch / Mishneh Torah entries are intentionally marked as partial or non-practical parallels where relevant.
 
-
-
-
-
+Image, based on this data: 
 
 ![BRAND - Hierarchical Topic Tree of Jewish Law - v1 - 18-Feb-2026](https://github.com/user-attachments/assets/9b0bbfb8-5a45-4c25-9621-41f350e754f5)
+
+Also uploaded here, as a PDF: [Comparative Hierarchical Topic Tree of Jewish Law: Bible, Mishnah, Mishneh Torah, Shulchan Aruch](https://www.academia.edu/164739079/Comparative_Hierarchical_Topic_Tree_of_Jewish_Law_Bible_Mishnah_Mishneh_Torah_Shulchan_Aruch)
 
