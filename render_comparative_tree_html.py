@@ -90,10 +90,62 @@ BOOK_MAP = {
 }
 
 
+SUBTOPIC_WIKI = {
+    "Prayer/Shema/Tefillin": {"he": "תפילה וקריאת שמע", "en_url": "https://en.wikipedia.org/wiki/Jewish_prayer", "he_url": "https://he.wikipedia.org/wiki/תפילה"},
+    "Shabbat": {"he": "שבת", "en_url": "https://en.wikipedia.org/wiki/Shabbat", "he_url": "https://he.wikipedia.org/wiki/שבת"},
+    "Eruvin/Boundary-Carrying Framework": {"he": "עירוב", "en_url": "https://en.wikipedia.org/wiki/Eruv", "he_url": "https://he.wikipedia.org/wiki/עירוב"},
+    "Pesach": {"he": "פסח", "en_url": "https://en.wikipedia.org/wiki/Passover", "he_url": "https://he.wikipedia.org/wiki/פסח"},
+    "Yom Tov (general)": {"he": "יום טוב", "en_url": "https://en.wikipedia.org/wiki/Yom_tov", "he_url": "https://he.wikipedia.org/wiki/יום_טוב"},
+    "Rosh Hashanah": {"he": "ראש השנה", "en_url": "https://en.wikipedia.org/wiki/Rosh_Hashanah", "he_url": "https://he.wikipedia.org/wiki/ראש_השנה"},
+    "Yom Kippur": {"he": "יום הכיפורים", "en_url": "https://en.wikipedia.org/wiki/Yom_Kippur", "he_url": "https://he.wikipedia.org/wiki/יום_הכיפורים"},
+    "Sukkot": {"he": "סוכות", "en_url": "https://en.wikipedia.org/wiki/Sukkot", "he_url": "https://he.wikipedia.org/wiki/סוכות"},
+    "Public Fasts": {"he": "תענית", "en_url": "https://en.wikipedia.org/wiki/Fast_days_in_Judaism", "he_url": "https://he.wikipedia.org/wiki/תענית"},
+    "Purim/Megillah": {"he": "פורים ומגילת אסתר", "en_url": "https://en.wikipedia.org/wiki/Purim", "he_url": "https://he.wikipedia.org/wiki/פורים"},
+    "Chol HaMoed": {"he": "חול המועד", "en_url": "https://en.wikipedia.org/wiki/Chol_HaMoed", "he_url": "https://he.wikipedia.org/wiki/חול_המועד"},
+    "Permitted/Forbidden Species": {"he": "כשרות", "en_url": "https://en.wikipedia.org/wiki/Kashrut", "he_url": "https://he.wikipedia.org/wiki/כשרות"},
+    "Ritual Slaughter": {"he": "שחיטה", "en_url": "https://en.wikipedia.org/wiki/Shechita", "he_url": "https://he.wikipedia.org/wiki/שחיטה"},
+    "Blood/Fat/Meat Prohibitions": {"he": "איסורי אכילה (דם וחֵלֶב)", "en_url": "https://en.wikipedia.org/wiki/Kashrut", "he_url": "https://he.wikipedia.org/wiki/כשרות"},
+    "Firstborn (animal/human)": {"he": "בכור ופדיון הבן", "en_url": "https://en.wikipedia.org/wiki/Pidyon_haben", "he_url": "https://he.wikipedia.org/wiki/פדיון_הבן"},
+    "Orlah": {"he": "עורלה", "en_url": "https://en.wikipedia.org/wiki/Orlah", "he_url": "https://he.wikipedia.org/wiki/עורלה"},
+    "Marriage/Kiddushin": {"he": "קידושין ונישואין", "en_url": "https://en.wikipedia.org/wiki/Jewish_wedding", "he_url": "https://he.wikipedia.org/wiki/קידושין"},
+    "Vows": {"he": "נדר (יהדות)", "en_url": "https://en.wikipedia.org/wiki/Neder", "he_url": "https://he.wikipedia.org/wiki/נדר_(יהדות)"},
+    "Nazirite": {"he": "נזיר", "en_url": "https://en.wikipedia.org/wiki/Nazirite", "he_url": "https://he.wikipedia.org/wiki/נזיר_(יהדות)"},
+    "Sotah ordeal": {"he": "סוטה", "en_url": "https://en.wikipedia.org/wiki/Sotah", "he_url": "https://he.wikipedia.org/wiki/סוטה"},
+    "Divorce": {"he": "גירושין (גט)", "en_url": "https://en.wikipedia.org/wiki/Get_(divorce_document)", "he_url": "https://he.wikipedia.org/wiki/גט"},
+    "Levirate/Yibbum-Chalitzah": {"he": "ייבום וחליצה", "en_url": "https://en.wikipedia.org/wiki/Yibbum", "he_url": "https://he.wikipedia.org/wiki/ייבום"},
+    "Niddah": {"he": "נידה", "en_url": "https://en.wikipedia.org/wiki/Niddah", "he_url": "https://he.wikipedia.org/wiki/נידה"},
+    "Torts/Damages": {"he": "נזיקין", "en_url": "https://en.wikipedia.org/wiki/Nezikin", "he_url": "https://he.wikipedia.org/wiki/נזיקין"},
+    "Commerce/Loans/Deposits": {"he": "איסור ריבית (הלכה)", "en_url": "https://en.wikipedia.org/wiki/Loans_and_interest_in_Judaism", "he_url": "https://he.wikipedia.org/wiki/איסור_ריבית_(הלכה)"},
+    "Real Estate/Partnerships/Inheritance": {"he": "ירושה (משפט עברי)", "en_url": "https://en.wikipedia.org/wiki/Inheritance#Jewish_laws", "he_url": "https://he.wikipedia.org/wiki/ירושה_(משפט_עברי)"},
+    "Courts/Testimony/Penalties": {"he": "סנהדרין ודיני ראיות", "en_url": "https://en.wikipedia.org/wiki/Sanhedrin", "he_url": "https://he.wikipedia.org/wiki/סנהדרין"},
+    "Offerings (animal/meal)": {"he": "קורבנות", "en_url": "https://en.wikipedia.org/wiki/Korban", "he_url": "https://he.wikipedia.org/wiki/קורבן"},
+    "Temple Daily Service/Structure": {"he": "בית המקדש ועבודת המקדש", "en_url": "https://en.wikipedia.org/wiki/Temple_in_Jerusalem", "he_url": "https://he.wikipedia.org/wiki/בית_המקדש"},
+    "Bird Offerings/Nest Cases": {"he": "קורבן עוף וקינים", "en_url": "https://en.wikipedia.org/wiki/Kinnim", "he_url": "https://he.wikipedia.org/wiki/קורבן_עוף"},
+    "Purity/Impurity Systems": {"he": "טומאה וטהרה", "en_url": "https://en.wikipedia.org/wiki/Tumah_and_taharah", "he_url": "https://he.wikipedia.org/wiki/טומאה_וטהרה"},
+    "Peah/Leket/Shikhechah": {"he": "פאת השדה", "en_url": "https://en.wikipedia.org/wiki/Pe%27ah", "he_url": "https://he.wikipedia.org/wiki/פאת_השדה"},
+    "Terumah/Ma'aser": {"he": "תרומה ומעשר", "en_url": "https://en.wikipedia.org/wiki/Special:Search?search=Terumah+Maaser", "he_url": "https://he.wikipedia.org/wiki/תרומות_ומעשרות"},
+    "Shemitah/Yovel": {"he": "שמיטה ויובל", "en_url": "https://en.wikipedia.org/wiki/Shmita", "he_url": "https://he.wikipedia.org/wiki/שמיטה"},
+    "Kilayim": {"he": "כלאיים", "en_url": "https://en.wikipedia.org/wiki/Kil%27ayim", "he_url": "https://he.wikipedia.org/wiki/כלאיים"},
+    "Challah": {"he": "הפרשת חלה", "en_url": "https://en.wikipedia.org/wiki/Challah", "he_url": "https://he.wikipedia.org/wiki/הפרשת_חלה"},
+    "Bikkurim": {"he": "ביכורים", "en_url": "https://en.wikipedia.org/wiki/Bikkurim", "he_url": "https://he.wikipedia.org/wiki/ביכורים"},
+}
+
+
 def load_rows() -> dict[str, dict[str, str]]:
     with CSV_PATH.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         return {row["Subtopic"]: row for row in reader}
+
+
+def build_subtopic_wiki_links() -> dict[str, dict[str, str]]:
+    links: dict[str, dict[str, str]] = {}
+    for subtopic, meta in SUBTOPIC_WIKI.items():
+        links[subtopic] = {
+            "he_term": meta["he"],
+            "en_url": meta["en_url"],
+            "he_url": meta["he_url"],
+        }
+    return links
 
 
 def split_parts(value: str) -> list[str]:
@@ -265,7 +317,20 @@ def linked_parts(value: str, source_type: str) -> str:
     return "<span class='sep'>; </span>".join(rendered)
 
 
-def build_html(rows: dict[str, dict[str, str]]) -> str:
+def subtopic_heading_html(subtopic: str, wiki_links: dict[str, dict[str, str]]) -> str:
+    info = wiki_links.get(subtopic)
+    if not info:
+        return html.escape(subtopic)
+    he_display = re.sub(r"\s*\([^)]*\)\s*$", "", info["he_term"]).strip()
+    return (
+        f"<a href='{html.escape(info['en_url'])}' target='_blank' rel='noopener noreferrer'>"
+        f"{html.escape(subtopic)}</a> "
+        f"(<a href='{html.escape(info['he_url'])}' target='_blank' rel='noopener noreferrer' "
+        f"lang='he' dir='rtl'>{html.escape(he_display)}</a>)"
+    )
+
+
+def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, str]]) -> str:
     topic_html = []
     topic_index = 0
     for topic, subtopics in CATEGORIES:
@@ -276,7 +341,7 @@ def build_html(rows: dict[str, dict[str, str]]) -> str:
             blocks.append(
                 f"""
                 <article class="subtopic">
-                  <h3>{html.escape(subtopic)}</h3>
+                  <h3>{subtopic_heading_html(subtopic, wiki_links)}</h3>
                   <div class="citations">
                     <div class="col">
                       <div class="label">Bible</div>
@@ -460,6 +525,13 @@ def build_html(rows: dict[str, dict[str, str]]) -> str:
       color: #5f6c7d;
       font-style: italic;
     }}
+    .subtopic h3 a {{
+      color: #123d72;
+    }}
+    .subtopic h3 a[lang="he"] {{
+      color: #2e4b20;
+      font-weight: 600;
+    }}
     .foot {{
       margin-top: 18px;
       color: #536276;
@@ -501,12 +573,15 @@ def build_html(rows: dict[str, dict[str, str]]) -> str:
 
 def main() -> None:
     rows = load_rows()
+    wiki_links = build_subtopic_wiki_links()
     for _, subtopics in CATEGORIES:
         for subtopic in subtopics:
             if subtopic not in rows:
                 raise ValueError(f"Missing subtopic in CSV: {subtopic}")
+            if subtopic not in wiki_links:
+                raise ValueError(f"Missing wiki metadata for subtopic: {subtopic}")
 
-    html_doc = build_html(rows)
+    html_doc = build_html(rows, wiki_links)
     HTML_OUT.write_text(html_doc, encoding="utf-8")
     print(f"Wrote: {HTML_OUT}")
 
