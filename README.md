@@ -1,4 +1,4 @@
-![BRAND - Hierarchical Topic Tree of Jewish Law - v1 - 18-Feb-2026](https://github.com/user-attachments/assets/ead385e3-a607-4a33-9182-23e78deee7d8)# Jewish Law Tree
+# Jewish Law Tree
 
 Citation-granular comparative mapping across:
 - Bible
