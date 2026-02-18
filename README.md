@@ -1,46 +1,38 @@
 # Jewish Law Tree
 
-Citation-granular comparative mapping across:
-- Bible
+This project maps major areas of Jewish law across four core texts:
+- Bible (Tanakh/Torah law passages)
 - Mishnah
-- Mishneh Torah
+- Mishneh Torah (Rambam)
 - Shulchan Aruch
 
-The project provides a strict CSV matrix and generated visualizations (static image + full HTML hierarchy with Sefaria links).
+The goal is simple: help readers see how the same legal topics appear in different layers of the Jewish legal tradition, and support study of the history of halacha.
 
-## Files
-- `comparative_topic_matrix.csv`
-  - Strict 4-column matrix:
-    - `Bible range`
-    - `Mishnah range`
-    - `Mishneh Torah unit`
-    - `Shulchan Aruch simanim`
-- `comparative_topic_matrix_with_subtopic.csv`
-  - Same matrix with added `Subtopic` column for sorting/filtering.
-- `render_comparative_tree.py`
-  - Generates vertical static outputs:
-    - `comparative_topic_tree_vertical.png`
-    - `comparative_topic_tree_vertical.svg`
-- `render_comparative_tree_html.py`
-  - Generates:
-    - `comparative_topic_tree_hyperlinked.html`
-  - HTML is full-detail, vertical hierarchy, and hyperlinks citations to Sefaria.
+## What You Can Browse
+- `index.html` (live page): a vertical topic tree with full citation detail.
+- Each citation is linked to Sefaria.
+- Each subtopic header is linked to a relevant Wikipedia page in English and Hebrew.
+- Hebrew labels are shown cleanly (without parenthetical metadata in the visible text).
 
-## Generate Outputs
-Run from repo root:
+Live site:
+- `https://ezrabrand.github.io/jewish-law-tree/`
+
+## Data Files
+- `comparative_topic_matrix.csv`: base comparison table (4 columns).
+- `comparative_topic_matrix_with_subtopic.csv`: same data, plus a `Subtopic` column.
+
+## Technical Appendix
+- `render_comparative_tree_html.py` builds the main HTML page from CSV data.
+- `render_comparative_tree.py` builds static image versions (`.png`, `.svg`).
+- `index.html` is the GitHub Pages entrypoint.
+- GitHub Actions deploys updates from `main` to the live Pages site.
+
+To regenerate locally:
 
 ```bash
 python render_comparative_tree.py
 python render_comparative_tree_html.py
 ```
-
-## GitHub Pages
-- Site URL: `https://ezrabrand.github.io/jewish-law-tree/`
-- Main page: `index.html` (same content as `comparative_topic_tree_hyperlinked.html`)
-
-## Notes
-- Mishneh Torah links in HTML use direct Sefaria URL format when mapped (example style: `Mishneh_Torah,_Foundations_of_the_Torah.1.1`), with fallback behavior for ambiguous entries.
-- Some Shulchan Aruch / Mishneh Torah entries are intentionally marked as partial or non-practical parallels where relevant.
 
 Image, based on this data: 
 

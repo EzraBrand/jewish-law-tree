@@ -28,6 +28,8 @@ jobs:
           cp comparative_topic_matrix_with_subtopic.csv _site/comparative_topic_matrix_with_subtopic.csv
           cp comparative_topic_tree_vertical.png _site/comparative_topic_tree_vertical.png
           cp comparative_topic_tree_vertical.svg _site/comparative_topic_tree_vertical.svg
+          cp robots.txt _site/robots.txt
+          cp sitemap.xml _site/sitemap.xml
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4

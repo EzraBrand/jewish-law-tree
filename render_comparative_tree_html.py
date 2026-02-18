@@ -7,6 +7,12 @@ from urllib.parse import quote_plus, quote
 
 CSV_PATH = Path("comparative_topic_matrix_with_subtopic.csv")
 HTML_OUT = Path("comparative_topic_tree_hyperlinked.html")
+SITE_URL = "https://ezrabrand.github.io/jewish-law-tree/"
+SITE_TITLE = "Comparative Topic Tree of Jewish Law | Bible, Mishnah, Mishneh Torah, Shulchan Aruch"
+SITE_DESCRIPTION = (
+    "Citation-granular comparative hierarchy of Jewish law across Bible, Mishnah, "
+    "Mishneh Torah, and Shulchan Aruch, with linked sources."
+)
 
 
 CATEGORIES = [
@@ -332,9 +338,11 @@ def subtopic_heading_html(subtopic: str, wiki_links: dict[str, dict[str, str]]) 
 
 def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, str]]) -> str:
     topic_html = []
+    topic_toc = []
     topic_index = 0
     for topic, subtopics in CATEGORIES:
         topic_index += 1
+        topic_toc.append(f"<li><a href='#topic-{topic_index}'>{html.escape(topic)}</a></li>")
         blocks = []
         for subtopic in subtopics:
             row = rows[subtopic]
@@ -374,12 +382,36 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
             """
         )
 
+    json_ld = """{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Comparative Hierarchical Topic Tree (Citation-Granular): Bible, Mishnah, Mishneh Torah, Shulchan Aruch",
+  "name": "Comparative Topic Tree of Jewish Law",
+  "inLanguage": ["en", "he"],
+  "about": ["Bible", "Mishnah", "Mishneh Torah", "Shulchan Aruch", "Halakha", "history of halacha"],
+  "url": "https://ezrabrand.github.io/jewish-law-tree/",
+  "mainEntityOfPage": "https://ezrabrand.github.io/jewish-law-tree/"
+}"""
+
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Comparative Hierarchical Topic Tree (Citation-Granular)</title>
+  <title>{SITE_TITLE}</title>
+  <meta name="description" content="{SITE_DESCRIPTION}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="{SITE_URL}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Comparative Topic Tree of Jewish Law">
+  <meta property="og:description" content="{SITE_DESCRIPTION}">
+  <meta property="og:url" content="{SITE_URL}">
+  <meta property="og:image" content="{SITE_URL}comparative_topic_tree_vertical.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comparative Topic Tree of Jewish Law">
+  <meta name="twitter:description" content="{SITE_DESCRIPTION}">
+  <meta name="twitter:image" content="{SITE_URL}comparative_topic_tree_vertical.png">
+  <script type="application/ld+json">{json_ld}</script>
   <style>
     :root {{
       --bg: #f5f6f8;
@@ -429,6 +461,29 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
       border-radius: 10px;
       font-weight: 700;
       box-shadow: var(--shadow);
+    }}
+    .toc {{
+      margin-top: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+    }}
+    .toc strong {{
+      display: block;
+      margin-bottom: 6px;
+      color: #2b3e54;
+    }}
+    .toc ul {{
+      margin: 0;
+      padding-left: 18px;
+      column-count: 2;
+      column-gap: 26px;
+    }}
+    .toc li {{
+      margin: 4px 0;
+      break-inside: avoid;
     }}
     .tree {{
       margin-top: 16px;
@@ -549,6 +604,7 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
       .tree {{ padding-left: 12px; }}
       .topic::before {{ left: -15px; width: 10px; }}
       .subtopic::before {{ left: -12px; width: 8px; }}
+      .toc ul {{ column-count: 1; }}
     }}
   </style>
 </head>
@@ -559,11 +615,17 @@ def build_html(rows: dict[str, dict[str, str]], wiki_links: dict[str, dict[str, 
       <p class="meta">Vertical hierarchy with full citation detail. Each citation token links to Sefaria (direct ref when parseable, otherwise Sefaria search query fallback).</p>
     </header>
     <div class="root">Torah / Jewish Knowledge Corpus</div>
+    <nav class="toc" aria-label="Topic navigation">
+      <strong>Topics</strong>
+      <ul>
+        {''.join(topic_toc)}
+      </ul>
+    </nav>
     <main class="tree">
       {''.join(topic_html)}
     </main>
     <div class="foot">
-      Generated from <code>comparative_topic_matrix_with_subtopic.csv</code>. Notes like “selected” or “no full practical code parallel” are preserved verbatim.
+      Generated from <code>comparative_topic_matrix_with_subtopic.csv</code>. Notes like "selected" or "no full practical code parallel" are preserved verbatim.
     </div>
   </div>
 </body>

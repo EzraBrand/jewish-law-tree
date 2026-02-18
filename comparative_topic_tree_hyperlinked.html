@@ -3,7 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Comparative Hierarchical Topic Tree (Citation-Granular)</title>
+  <title>Comparative Topic Tree of Jewish Law | Bible, Mishnah, Mishneh Torah, Shulchan Aruch</title>
+  <meta name="description" content="Citation-granular comparative hierarchy of Jewish law across Bible, Mishnah, Mishneh Torah, and Shulchan Aruch, with linked sources.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://ezrabrand.github.io/jewish-law-tree/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Comparative Topic Tree of Jewish Law">
+  <meta property="og:description" content="Citation-granular comparative hierarchy of Jewish law across Bible, Mishnah, Mishneh Torah, and Shulchan Aruch, with linked sources.">
+  <meta property="og:url" content="https://ezrabrand.github.io/jewish-law-tree/">
+  <meta property="og:image" content="https://ezrabrand.github.io/jewish-law-tree/comparative_topic_tree_vertical.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comparative Topic Tree of Jewish Law">
+  <meta name="twitter:description" content="Citation-granular comparative hierarchy of Jewish law across Bible, Mishnah, Mishneh Torah, and Shulchan Aruch, with linked sources.">
+  <meta name="twitter:image" content="https://ezrabrand.github.io/jewish-law-tree/comparative_topic_tree_vertical.png">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Comparative Hierarchical Topic Tree (Citation-Granular): Bible, Mishnah, Mishneh Torah, Shulchan Aruch",
+  "name": "Comparative Topic Tree of Jewish Law",
+  "inLanguage": ["en", "he"],
+  "about": ["Bible", "Mishnah", "Mishneh Torah", "Shulchan Aruch", "Halakha", "history of halacha"],
+  "url": "https://ezrabrand.github.io/jewish-law-tree/",
+  "mainEntityOfPage": "https://ezrabrand.github.io/jewish-law-tree/"
+}</script>
   <style>
     :root {
       --bg: #f5f6f8;
@@ -53,6 +75,29 @@
       border-radius: 10px;
       font-weight: 700;
       box-shadow: var(--shadow);
+    }
+    .toc {
+      margin-top: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+    }
+    .toc strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2b3e54;
+    }
+    .toc ul {
+      margin: 0;
+      padding-left: 18px;
+      column-count: 2;
+      column-gap: 26px;
+    }
+    .toc li {
+      margin: 4px 0;
+      break-inside: avoid;
     }
     .tree {
       margin-top: 16px;
@@ -173,6 +218,7 @@
       .tree { padding-left: 12px; }
       .topic::before { left: -15px; width: 10px; }
       .subtopic::before { left: -12px; width: 8px; }
+      .toc ul { column-count: 1; }
     }
   </style>
 </head>
@@ -183,6 +229,12 @@
       <p class="meta">Vertical hierarchy with full citation detail. Each citation token links to Sefaria (direct ref when parseable, otherwise Sefaria search query fallback).</p>
     </header>
     <div class="root">Torah / Jewish Knowledge Corpus</div>
+    <nav class="toc" aria-label="Topic navigation">
+      <strong>Topics</strong>
+      <ul>
+        <li><a href='#topic-1'>1) Sacred Time, Prayer, Festivals</a></li><li><a href='#topic-2'>2) Kashrut / Forbidden Foods / Bodily Sanctity</a></li><li><a href='#topic-3'>3) Family Law / Personal Status</a></li><li><a href='#topic-4'>4) Civil, Commercial, Damages, Courts</a></li><li><a href='#topic-5'>5) Temple, Sacrifices, Purity</a></li><li><a href='#topic-6'>6) Agriculture / Land-Dependent Mitzvot</a></li>
+      </ul>
+    </nav>
     <main class="tree">
       
             <section class="topic" id="topic-1">
@@ -1043,7 +1095,7 @@
             
     </main>
     <div class="foot">
-      Generated from <code>comparative_topic_matrix_with_subtopic.csv</code>. Notes like “selected” or “no full practical code parallel” are preserved verbatim.
+      Generated from <code>comparative_topic_matrix_with_subtopic.csv</code>. Notes like "selected" or "no full practical code parallel" are preserved verbatim.
     </div>
   </div>
 </body>
